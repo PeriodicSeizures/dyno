@@ -1,2 +1,2 @@
 # dyno
-modern ssh library using asio
+modern ssh server library using asio
