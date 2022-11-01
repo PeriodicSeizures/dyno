@@ -66,6 +66,22 @@ namespace dyno {
         void stop();
     };
 
+
+    // These are currently broad to cover the overall types
+    // https://www.rfc-editor.org/rfc/rfc4251
+    enum class message_type : uint8_t {
+        tpt_generic = 1,
+        tpt_algo = 20,
+        tpt_kex = 30,
+
+        user_generic = 50,
+        user_aex = 60,
+
+        conn_generic = 80,
+        conn_chan = 90,
+
+        local_ext = 192
+    };
 }
 
 #endif //DYNOSSH_DYNOSSH_H
