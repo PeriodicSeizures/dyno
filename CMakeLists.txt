@@ -13,8 +13,9 @@ find_package(asio CONFIG REQUIRED)
 #add_library(${PROJECT_NAME} server.cpp user_session.cpp)
 
 # using this to test
-target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 add_executable(${PROJECT_NAME} src/server.cpp src/user_session.cpp Main.cpp)
+
+target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 target_link_libraries(${PROJECT_NAME}
     PUBLIC Threads::Threads

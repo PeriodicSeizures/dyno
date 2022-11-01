@@ -53,9 +53,14 @@ namespace dyno {
                 }
 
                 std::string_view software(version);
-                software = software.substr(8);
+                auto f = software.find(" ", 8);
+                software = software.substr(8, f == std::string::npos ? version.length() - 8 - 2: f - 8);
 
-                //std::string_view comments(version);
+                // then there are comments
+                if (f != std::string::npos) {
+                    std::string_view comments(version);
+                    comments = comments.substr(f - 8, software.length() - 8 - 2);
+                }
             } else {
                 close();
             }
